@@ -1,0 +1,37 @@
+@import url(./__logo/header__logo.css);
+
+.header {
+    padding: 45px 0 0;
+    max-width: 69%;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(84, 84, 84, .7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 850px) {
+    .header {
+        max-width: 89.5%;
+        padding-top: 28px;
+    }
+}
+@media (max-width: 320px) {
+    .header {
+        max-width: 100%;
+        padding-left: 27px;
+    }
+}
+.header__login {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: right;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    border: 0;
+    color: #fff;
+    outline: 0;
+}
