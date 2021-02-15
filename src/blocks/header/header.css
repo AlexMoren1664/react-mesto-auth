@@ -1,4 +1,8 @@
 @import url(./__logo/header__logo.css);
+@import url(./__login/header__login.css);
+@import url(./__container/header__container.css);
+@import url(./__user/header__user.css);
+
 
 .header {
     padding: 45px 0 0;
@@ -21,17 +25,4 @@
         max-width: 100%;
         padding-left: 27px;
     }
-}
-.header__login {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    text-align: right;
-    background-color: rgba(0, 0, 0, 0);
-    cursor: pointer;
-    border: 0;
-    color: #fff;
-    outline: 0;
 }

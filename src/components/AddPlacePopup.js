@@ -1,6 +1,5 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
-// import { useRef } from "react";
 import { useState } from "react";
 
 function AddPlacePopup(props) {

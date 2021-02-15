@@ -6,7 +6,14 @@
 @import url(./__content/popup__content.css);
 @import url(./__img/popup__img.css);
 @import url(./__img-title/popup__img-title.css);
-
+@import url(./__form/_type_login/popup__form_type_login.css);
+@import url(./__input/_type_input/popup__input_type_login.css);
+@import url(./__title/_type_title/popup__title_type_login.css);
+@import url(./__button/_type_login/popup__button_type_login.css);
+@import url(./__link/popup__link.css);
+@import url(./__img/_type_hint/popup__img_type_hint.css);
+@import url(./__form/_type_hint/popup__form_type_hint.css);
+@import url(./__title/_type_hint/popup__title_type_hint.css);
 
 .popup {
     font-family: 'Inter', ‘Arial’, sans-serif;
