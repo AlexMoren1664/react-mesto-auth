@@ -11,6 +11,7 @@
     background-color: rgba(0, 0, 0, 0);
     outline: 0;
     display: none;
+    cursor: pointer;
 }
 .card__delete:hover {
     opacity: .6;

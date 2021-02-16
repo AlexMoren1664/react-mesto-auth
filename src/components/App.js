@@ -39,24 +39,27 @@ function App() {
     setIsInfoTooltip(true);
   }
 
+  function tokenCheck() {
+    return auth
+      .getContent(localStorage.getItem("jwt"))
+      .then((res) => {
+        setLoggedIn(true);
+        setUserData({ email: res.data.email });
+        history.push("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
-      function tokenCheck() {
-        return auth
-          .getContent(localStorage.getItem("jwt"))
-          .then((res) => {
-            setLoggedIn(true);
-            setUserData({ email: res.data.email });
-            history.push("/");
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
       tokenCheck();
     }
-  }, [history]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function handleRegister(data) {
     const { email, password } = data;
@@ -168,8 +171,8 @@ function App() {
     api
       .deleteCard(card._id)
       .then(() => {
-        const car = cards.filter((c) => c._id !== card._id);
-        setCards(car);
+        const newCard = cards.filter((c) => c._id !== card._id);
+        setCards(newCard);
       })
       .catch((err) => {
         console.log(err);

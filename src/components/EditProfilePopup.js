@@ -4,30 +4,32 @@ import { useState } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
 function EditProfilePopup(props) {
-  const [name, setName] = useState(" ");
-  const [description, setDescription] = useState(" ");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const currentUser = React.useContext(CurrentUserContext);
 
-  React.useEffect(() => {
-    setName(currentUser.name);
-    setDescription(currentUser.about);
-  }, [currentUser]);
 
-  function handleChangeName(e) {
-    setName(e.target.value);
+
+  function handleChangeName(event) {
+    setName(event.target.value);
   }
 
-  function handleChangeDescription(e) {
-    setDescription(e.target.value);
+  function handleChangeDescription(event) {
+    setDescription(event.target.value);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
     props.onUpdateUser({
       name,
       about: description,
     });
   }
+  
+  React.useEffect(() => {
+    setName(currentUser.name);
+    setDescription(currentUser.about);
+  }, [currentUser]);
 
   return (
     <PopupWithForm
@@ -36,8 +38,9 @@ function EditProfilePopup(props) {
       onClose={props.onClose}
       name="edit"
       title="Редактировать профиль" >
+        <>
           <input
-            value={props.name}
+            value={name || ""}
             onChange={handleChangeName}
             id="name-input"
             name="name"
@@ -51,7 +54,7 @@ function EditProfilePopup(props) {
           />
           <span className="popup__error" id="name-error" />
           <input
-            value={props.description}
+            value={description || ""}
             onChange={handleChangeDescription}
             id="about-input"
             name="about"
@@ -63,6 +66,7 @@ function EditProfilePopup(props) {
             maxLength={40}
             autoComplete="off"
           />
+          </>
           <span className="popup__error" id="about-error" />
    </PopupWithForm>
   );
